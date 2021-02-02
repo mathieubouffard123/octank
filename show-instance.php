@@ -35,7 +35,7 @@
 <center>Subnet ID is <b><?= $subnet ?></b></center>
 <center>VPC ID  is <b><?= $vpc ?></b></center>
 <br>
-<center>UserData<b><?= $theData ?></b></center>
+<center><u>UserData</u><b><?= $theData ?></b></center>
 <br>
 
 <?php
