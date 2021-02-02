@@ -8,8 +8,18 @@ amazon-linux-extras install -y php7.2
 # Install git
 yum install -y git-all
 
+# Install EFS mount tools
+yum install -y amazon-efs-utils
+
+# Create mount point and mount to it 
+mkdir /mnt/efs
+sudo mount -t efs -o tls fs-1c2b33e9:/ /mnt/efs
+
 # Download repo from Git
 git clone  --branch v2 https://github.com/mathieubouffard123/octank.git /var/www/html
+
+# Overwrite fstab to automatically mount EFS
+ yes | cp -rf /var/www/html/fstab /etc/
 
 # Download Lab files 
 #wget https://us-west-2-tcprod.s3.amazonaws.com/courses/ILT-TF-200-ARCHIT/v6.8.15/lab-2-webapp/scripts/inventory-app.zip 
