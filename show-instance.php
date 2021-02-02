@@ -7,7 +7,7 @@
   # Get the instance ID from meta-data and print to the screen
   $instance = file_get_contents($urlRoot . 'instance-id');
   $hostname = file_get_contents($urlRoot . 'hostname');
-  $lifecycle = file_get_contents($urlRoot . 'instance-life-cyle');
+  $lifecycle = file_get_contents($urlRoot . 'instance-life-cycle');
   $instancetype = file_get_contents($urlRoot . 'instance-type');
   $ip = file_get_contents($urlRoot . 'local-ipv4');
   $mac = file_get_contents($urlRoot . 'mac');
