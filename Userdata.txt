@@ -1,6 +1,3 @@
-Userdata
-
-
 #!/bin/bash 
 # Install Apache Web Server and PHP 
 yum install -y httpd mysql 
@@ -31,5 +28,3 @@ unzip aws -d /var/www/html
 # Turn on web server
 chkconfig httpd on 
 service httpd start
-
-
