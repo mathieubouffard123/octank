@@ -19,13 +19,7 @@
   $az = file_get_contents($urlRoot . 'placement/availability-zone');
 
 
-$filename = "Userdata.txt";
-$fp = fopen($filename, "r");
 
-$content = fread($fp, filesize($filename));
-$lines = explode("\n", $content);
-fclose($fp);
-print_r($lines);
 
 
 ?>
@@ -43,3 +37,21 @@ print_r($lines);
 <br>
 <center>UserData<b><?= $theData ?></b></center>
 <br>
+
+<?php
+$filename = "Userdata.txt";
+$fp = fopen($filename, "r");
+
+while(! feof($fp))
+  {
+  echo fgets($fp). "<br />";
+  }
+
+fclose($fp);
+
+#$content = fread($fp, filesize($filename));
+#$lines = explode("\n", $content);
+#fclose($fp);
+#print_r($lines);
+
+?>
