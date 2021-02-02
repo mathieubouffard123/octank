@@ -18,10 +18,15 @@
   # Availability Zone
   $az = file_get_contents($urlRoot . 'placement/availability-zone');
 
-  $myFile = "Userdata.txt";
-  $fh = fopen($myFile, 'r');
-  $theData = fread($fh, 1);
-  fclose($fh);
+
+$filename = "Userdata.txt";
+$fp = fopen($filename, "r");
+
+$content = fread($fp, filesize($filename));
+$lines = explode("\n", $content);
+fclose($fp);
+print_r($lines);
+
 
 ?>
 
