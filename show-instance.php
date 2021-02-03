@@ -65,3 +65,9 @@ fclose($fp);
 
 ?>
 <br><br>
+
+<?php 
+    echo "<img src='http://www.bouffam-octank.com/images/john-fowler-EgLPw5LE6aQ-unsplash.jpg' alt='test' />"; 
+?> 
+
+<br><br>
