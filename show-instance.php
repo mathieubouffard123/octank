@@ -71,3 +71,10 @@ fclose($fp);
 ?> 
 
 <br><br>
+
+<?php 
+    echo "<img src='http://www.bouffam-octank.com/images/scarlet-ellis-T-hmCH6excw-unsplash.jpg' alt='test' />"; 
+?> 
+
+<br><br>
+
