@@ -32,7 +32,7 @@
 ?> 
 
 
-<br>
+<br><br>
 <center>Hostname is <b><?= $hostname ?></b></center>
 <center>Lifeycle is <b><?= $lifecycle ?></b></center>
 <center>Instance type is <b><?= $instancetype ?></b></center>
