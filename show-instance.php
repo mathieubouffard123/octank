@@ -24,6 +24,7 @@
 
 <br><br>
 
+<center>
 <?php 
     echo "<img src='https://www.bouffam-octank.com/images/pexels-pixabay-358457.jpg' width=100 alt='test' />"; 
 ?> 
@@ -36,6 +37,7 @@
 <?php 
     echo "<img src='https://www.bouffam-octank.com/images/scarlet-ellis-T-hmCH6excw-unsplash.jpg' width=100 alt='test' />"; 
 ?> 
+</center>
 
 <br><br>
 <center>Hostname is <b><?= $hostname ?></b></center>
