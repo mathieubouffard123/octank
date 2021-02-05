@@ -1,7 +1,9 @@
 #!/bin/bash 
+
 # Install Apache Web Server and PHP 
 yum install -y httpd mysql 
 amazon-linux-extras install -y php7.2 
+
 # Install git
 yum install -y git-all
 
@@ -12,19 +14,19 @@ yum install -y amazon-efs-utils
 mkdir /mnt/efs
 sudo mount -t efs -o tls fs-1c2b33e9:/ /mnt/efs
 
+# Overwrite fstab to automatically mount EFS
+yes | cp -rf /var/www/html/fstab /etc/
+
 # Download repo from Git
 git clone  --branch v2 https://github.com/mathieubouffard123/octank.git /var/www/html
 
-# Overwrite fstab to automatically mount EFS
- yes | cp -rf /var/www/html/fstab /etc/
-
-# Download Lab files 
-#wget https://us-west-2-tcprod.s3.amazonaws.com/courses/ILT-TF-200-ARCHIT/v6.8.15/lab-2-webapp/scripts/inventory-app.zip 
-#unzip inventory-app.zip -d /var/www/html/ 
+# copy user-data to web page root to eventually show it on web page
+cp /var/lib/cloud/instance/user-data.txt /var/www/html/
 
 # Download and install the AWS SDK for PHP 
 wget https://github.com/aws/aws-sdk-php/releases/download/3.62.3/aws.zip 
 unzip aws -d /var/www/html 
+
 # Turn on web server
 chkconfig httpd on 
 service httpd start
