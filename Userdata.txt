@@ -7,21 +7,19 @@ amazon-linux-extras install -y php7.2
 # Install git
 yum install -y git-all
 
-# Install EFS mount tools
-yum install -y amazon-efs-utils
+# Download repo from Git
+git clone  --branch v2 https://github.com/mathieubouffard123/octank.git /var/www/html
 
 # Create mount point and mount to it 
 mkdir /mnt/efs
-sudo mount -t efs -o tls fs-1c2b33e9:/ /mnt/efs
+sudo mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-1c2b33e9.efs.us-east-1.amazonaws.com:/ /mnt/efs
 
 # Overwrite fstab to automatically mount EFS
 yes | cp -rf /var/www/html/fstab /etc/
 
-# Download repo from Git
-git clone  --branch v2 https://github.com/mathieubouffard123/octank.git /var/www/html
-
 # copy user-data to web page root to eventually show it on web page
 cp /var/lib/cloud/instance/user-data.txt /var/www/html/
+chmod 644 /var/www/html/user-data.txt
 
 # Download and install the AWS SDK for PHP 
 wget https://github.com/aws/aws-sdk-php/releases/download/3.62.3/aws.zip 
